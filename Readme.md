@@ -16,6 +16,8 @@ System Design Interview – An insider's guide by Alex Xu - https://www.amazon.c
 
 System Design in a Hurry by me & Stefan - https://www.hellointerview.com/learn/system-design/in-a-hurry/introduction
 
+System Design ByteByteGo https://bytebytego.com/courses/system-design-interview/scale-from-zero-to-millions-of-users
+
 Jordan Has No Life YouTube Channel - https://www.youtube.com/@jordanhasnolife5163
 
 1. Decide on a framework. Thinking on your feet during an interview is hard. You want to do all you can to have a game plan going in via a framework you've practiced. There are a number of frameworks online, all of which are similar. I recommend this to candidates (https://www.hellointerview.com/learn/system-design/in-a-hurry/delivery), but you'll find what works for you. The goal is to keep you focused and give you the structure to not get lost in the complexity in the short time window.
