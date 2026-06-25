@@ -1,4 +1,11 @@
-The best way to prepare for system design interviews
+## Important Design Patterns
+https://www.geeksforgeeks.org/system-design/software-design-patterns/
+
+## More Design Patterns
+1. Circuite Breaker
+2. Round Robin
+
+## The best way to prepare for system design interviews
 I conducted 100s of interviews at Meta as a Staff engineer, and now I work with candidates everyday to help them prepare for interviews at the top tech companies.
 
 Having helped thousands of candidates at this point, this is what I have found to be the most effective way to prepare for system design interviews.
