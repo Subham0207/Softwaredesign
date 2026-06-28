@@ -13,8 +13,8 @@ Example: You are already given the requirement, create entities and relationship
     a. In scope
     b. out of scope
 
-# Entities and Relationships
-Entities:
+# Entities and Relationships and state modelling
+Examples Entities:
 - Game
 - Board
 - Player
@@ -22,6 +22,9 @@ Entities:
 Relationships:
 - Game -> Board
 - Game -> Player (2x)
+
+State modelling help describe state transition relationship easily
+1. See Amazon Locker problem.
 
 # Class Design
 For each entity:
