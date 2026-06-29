@@ -3,8 +3,11 @@
 ## Requirements
 
 ### Functional Requirements
+- capabilities
 1. Prioritize 3 requirements
 2. Written like: `Users/Clients should be able to...`
+- Edge cases/Errors
+- Scope boundary
 
 ### Non-Functional Requirements
 1. Prioritize 3 Requirements
@@ -38,6 +41,7 @@
     c. other regulations
 
 ### Capacity estimation
+skip it upfront.
 
 ## Core Entities
 Types that your API will exchange and that your system will persist in a Data Model

@@ -89,4 +89,4 @@ stock.setPrice(145.00);  // Both observers get notified
 stock.setPrice(155.00);  // Both observers get notified
 `
 
-3. 
+3. Statemachine
