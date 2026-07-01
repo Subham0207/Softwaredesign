@@ -87,7 +87,7 @@ For a web crawler, this might look like:
 ## High Level Design
 Design a diagram
 
-## Deep Dives
+## Deep Dives and Estimations
 Now, harden your design by:
 1. Ensuring it meets all of your non-functional requirements.
 2. Addressing edge cases.
