@@ -11,5 +11,4 @@ presignedURL to upload/download from a blob storage ( like AWS S3 ). Use chunkin
 kafka deep dive
 streams/Event sourcing deep dive
 datastuctures in Redis cache
-Apache Flink - Stream processing
-Apache Spark - Batch processing
+Apache Flink - Batch and Stream processing
