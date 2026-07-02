@@ -25,4 +25,13 @@
 
 
 # Deep dive
-- 
+- Components:
+    - Ingest node
+    - coordinating node
+    - data node
+- Elasticsearch index
+    - Shard and thier replicas
+    - Lucene index (inverted index)
+        - segments -- Mostly read only.
+        - segment compaction/merging.
+        - Doc values index
