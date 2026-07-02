@@ -8,7 +8,7 @@ circuit breaker - specifically in service -> redis
 How to design graceful degradation of redis cache.
 Sharding process in Production
 presignedURL to upload/download from a blob storage ( like AWS S3 ). Use chunking should be default way to upload/download.
-kafka deep dive
-streams/Event sourcing deep dive
-datastuctures in Redis cache
-Apache Flink - Batch and Stream processing
+- (DONE) kafka deep dive
+- streams/Event sourcing deep dive
+- (PARTIAL) datastuctures in Redis cache
+- (DONE) Apache Flink - Batch and Stream processing
