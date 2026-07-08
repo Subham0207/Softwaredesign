@@ -58,3 +58,10 @@ A: Just like with coding interviews you can classify system design questions int
 9. Cloud Storage Services: Efficient and scalable file storage and sharing solutions
 10. Online Competition Platforms: Real-time interaction, leaderboard management, and competition handling
 11. Design a foundational component: Like a rate limiter, message queue, cache, etc.
+
+
+
+# How to improve (Doubtfull - I am asked to focus on being interview ready instead)
+
+- Get AWS Associate certificate
+- Get Hashicorp certificate
