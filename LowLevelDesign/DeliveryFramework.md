@@ -1,17 +1,31 @@
 Practice writing each sections multiples times to get a feel for it.
 Example: You are already given the requirement, create entities and relationship.
 
-# Requirements
+# Importatnt notes
+- Enums for states
+- Service class for managing multiple Single responsible objects.
+- Make use of interfaces when multiple forms of same thing exists.
+
+# Requirements ( primary capabilities, Error handling, Scope boundary)
 1. Primary capabilities: What operation must this system support
 2. Rules and completions:
     a. Define Success
     b. failure
     c. When the system stops 
     d. State transitions
-3. Error handling: System response when inputs or actions are invalid.
+3. Error handling: System response when inputs or actions are invalid. Example:
+    - Timeouts
+    - dead locks
+    - InvalidInput
 4. Scope boundary:
     a. In scope
     b. out of scope
+        - Authentication/authorization
+
+## Non functional requirements for LLD
+- Extensibility
+- concurrency and thread saftey
+- Memory efficiency
 
 # Entities and Relationships and state modelling
 Examples Entities:

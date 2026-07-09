@@ -63,5 +63,6 @@ A: Just like with coding interviews you can classify system design questions int
 
 # How to improve (Doubtfull - I am asked to focus on being interview ready instead)
 
+- React Revision
 - Get AWS Associate certificate
 - Get Hashicorp certificate
