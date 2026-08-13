@@ -38,3 +38,12 @@ function simplifyDebt(edges)
 
     return result;
 }
+
+const edges = [
+    ["A", "B", 100],
+    ["A", "C", 50],
+    ["B", "C", 30],
+    ["C", "D", 20]
+];
+
+console.log(simplifyDebt(edges));
