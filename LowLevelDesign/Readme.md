@@ -24,6 +24,8 @@ Like: starting out with Pragmatic Monolith rather than microservice and only spl
 2. Observer pattern
 3. Strategy pattern
 4. Singleton pattern 
+5. Chain of responsiblitiy pattern
+6. CQRS - command query responsibility segragation.
 
 Interview Prep:
 1. Game type question
