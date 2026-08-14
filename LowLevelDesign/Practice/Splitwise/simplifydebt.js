@@ -39,6 +39,7 @@ function simplifyDebt(edges)
     return result;
 }
 
+// A owes B
 const edges = [
     ["A", "B", 100],
     ["A", "C", 50],
@@ -47,3 +48,16 @@ const edges = [
 ];
 
 console.log(simplifyDebt(edges));
+
+
+// while loop with example 
+// debtors => i = 0 [A, 150]
+// creditors => j = 0 [B, 70]
+
+// A gives B 70; so settled amount is 70
+
+// subtract settled amount from both A and B
+
+// Either i or j will move
+// if A debt cleared move i to next debtor;
+// if B fully paid, move j to next creditor;
