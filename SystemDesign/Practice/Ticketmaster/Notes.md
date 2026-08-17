@@ -20,19 +20,19 @@
 # Dataflow
 
 # High level design
-    - List down database tables
-        - Relation: one to one, many to many, one to many
-        - pk and fk
-        - Queries
-    - Satisfy all the functional requirements
+- List down database tables
+    - Relation: one to one, many to many, one to many
+    - pk, fk, contraints ( unique ,etc )
+    - Queries
+- Satisfy all the functional requirements
 
 # Deep dive and estimation
-    - show depth at 1 to 3 places.
-        - Elastic search
-        - Redis
-        - CDN
-        - Persistant connection: Http long polling, Websockets, SSE (server sent events)
-        - Virtual waiting queue
-        - Change data capture
-        - Flink Stream processing
-    - Satisfy all non functional requirements.
+- show depth at 1 to 3 places.
+    - Elastic search
+    - Redis
+    - CDN
+    - Persistant connection: Http long polling, Websockets, SSE (server sent events)
+    - `Admin Enabled` Virtual waiting queue - priority queue, random, etc.
+    - Change data capture
+    - Flink Stream processing
+- Satisfy all non functional requirements.
