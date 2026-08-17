@@ -2,15 +2,18 @@
 
 ## Requirements
 
-### Functional Requirements
+### Functional Requirements ( features of the system )
 - capabilities
 1. Prioritize 3 requirements
 2. Written like: `Users/Clients should be able to...`
 - Edge cases/Errors
 - Scope boundary
 
-### Non-Functional Requirements
+### Non-Functional Requirements ( qualities of the system )
 1. Prioritize 3 Requirements
+- for CAP theorem consistency and availability can coexists in different parts of our system
+Example: Strong consistency for booking tickets & high availability for search and viewing events.
+- Scalability: read-write ratio. Maybe read events > booking tickets to event. And handle surges.
 
 #### Identifying Non functional requirements (Acronym: S C A L E F C D S)
 1. CAP theorem: Either consistency or Availability. Partition Tolerance is a given,
@@ -31,7 +34,7 @@
     a. Data protectetion
     b. access control
     c. Compliance with regulation
-7. Fault Tolerance: system continues to function even when  components fail
+7. Fault Tolerance: system continues to function even when components fail
     a. Redundancy
     b. Failover
     c. Recovery mechanism
