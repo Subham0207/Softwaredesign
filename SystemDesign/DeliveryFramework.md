@@ -26,12 +26,12 @@
     c. Read vs Write ratio. ( Scale read or write )
 4. Latency:
     a. Do request require computation time ?
-5. Durability: How important is data loss.
+5. Durability: How important is data loss. (No data loss) once data is saved, it persist despites hardware failure.
 6. Security:
     a. Data protectetion
     b. access control
     c. Compliance with regulation
-7. Fault Tolerance:
+7. Fault Tolerance: system continues to function even when  components fail
     a. Redundancy
     b. Failover
     c. Recovery mechanism
