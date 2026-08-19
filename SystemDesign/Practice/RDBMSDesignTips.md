@@ -89,3 +89,8 @@ OrderStatusHistory
 # If deletion must be reversible/auditable → consider soft deletion
 - use status field: ACTIVE | DELETED | SUSPENDED,
 - can add deletedAt/modifiedAt
+
+# How to avoid hot key problem in DB shard ?
+- Use shard keys with high cardinality - user_id, tenant_id, etc.
+- Hashed sharding -- use Hash function to select shard: hash(shard_key) % shards
+- Leverage cache like Redis for hot reads.
