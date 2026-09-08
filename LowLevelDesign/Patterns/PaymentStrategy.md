@@ -1,4 +1,4 @@
-# Strategy pattern as used to select different types of payment. Keeping the system extendible.
+# Chain of responsibility: Strategy pattern as used to select different types of payment. Keeping the system extendible.
 
 enum PaymentMethod
 {
@@ -57,3 +57,16 @@ Payment upiPay = new UPIPayment(); // singleton
 Payment netbankingPay = new NetbankingPayment(); // singleton
 
 upiPay.next = netbankingPay;
+
+
+# Use a map of strategies
+class PaymentService{
+    Map<type, PaymentHandler> paymentHandlers;
+
+    pay(BillingInfo, type)
+    {
+        if(!paymentHandlers.has(type)) throw new UnSupportedPaymentMethod(type);
+
+        paymentHandlers.get(type).pay(BillingInfo);
+    }
+}
