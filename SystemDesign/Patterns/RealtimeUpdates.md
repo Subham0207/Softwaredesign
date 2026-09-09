@@ -1,0 +1,4 @@
+- Polling (start with this)
+- Long polling 
+- SSE ( Server sent Events ) -- unidirectional - server to client.
+- Websockets - Layer 4 Load balancer, Websocket don't need redirection so a Layer 7 Load balancer might not be best.
