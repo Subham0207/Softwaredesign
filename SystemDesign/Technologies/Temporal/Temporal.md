@@ -1,6 +1,12 @@
 # What is Temporal
 - Durable workflow orchestrator / Durable execution engine
 
+# When to use 
+- state machine usecase
+
+# Failure modes
+# Explain replay, Idempotency, and compensation
+
 # Install Temporal
 - brew install temporal
 - Use a docker image
