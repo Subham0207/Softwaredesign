@@ -16,9 +16,10 @@ For Update
 
 # Write Skew
 Read on Isolation levels
-`Serializable` Isolation level can catch write skew.
+- `Serializable` Isolation level can catch write skew.
+- `Materialize into single row`
 
-# Redis TTL lock
+# Redis TTL lock ( if the lock/Hold outlives a transaction )
 
 # Fencing token
 Redis TTL lock can still give two user the same lock at boundary of the TTL.
@@ -33,3 +34,20 @@ Redis TTL lock can still give two user the same lock at boundary of the TTL.
 # Scaling hot row
 - if possible divide the row into multiple rows, so the contention is reduced.
 - If not possible, use a queue in front, with worker polling from this queue.
+
+
+# Summary
+- most basic lock using ACID transaction
+* conditional write - where clause
+* compare and set
+
+- lock depends on application logic
+* pessimistic lock ( high collision)
+* optimistic lock ( low collision )
+
+- write skew
+* Serializable isolation level
+* Materialize into single row 
+
+- lock outlive the transaction
+* distributed lock
