@@ -37,3 +37,17 @@
     - what if 1st write request invlaidated the cache, and at the same time a read request came and a db replica was read ( since we use async replication ) which had stale data, now this data will also be written to cache. What to do to avoid this ?
         - Use version numbers, Do the write request to DB with new version and create the cache key with new version in cache in same transaction. Now when the next read request comes in, it will first read the cache, see a new version, and make db request with the new version.
         - Any read request for the old version will still be served normally.
+
+
+
+# Summary
+- Index
+- denormalization
+- Horizontal DB scaling
+    - Replicas
+    - Sharding
+- External cache
+    - Redis
+    - CDN
+- Request coalescing
+- cache key fan out
