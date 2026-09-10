@@ -25,7 +25,7 @@
 - To handle updates temporal uses:
     - Versioning -- Logic applies only to new workflows.
     - Patching -- Logic applies to workflows in progress.
-- How to make sure a step runs exactly once:
+- How to make sure a step runs exactly once: idempotency
 - How do we manage history size
     - keep activity input/output result small.
     - `Continue as new` - snapshot and handoff to a new workflow.
@@ -41,3 +41,19 @@
 - Idempotency
 - How do you handle updates ?
 - 
+
+# More topics in Temporal
+- Child Workflows
+- Schedules
+- Search Attributes
+- Memo
+- Heartbeats
+- Cancellation
+- Saga / compensation
+- Nexus
+- Namespaces
+- mTLS
+- Temporal Cloud
+- Multi-cluster replication
+- OpenTelemetry
+- Advanced Visibility
