@@ -87,10 +87,10 @@ For a web crawler, this might look like:
 4. Store data
 5. Repeat
 
-## High Level Design
+## High Level Design ( Fulfill the FRs )
 Design a diagram
 
-## Deep Dives and Estimations
+## Deep Dives and Estimations ( fulfill the Non FRs, if needed SQL Queries at the end )
 Now, harden your design by:
 1. Ensuring it meets all of your non-functional requirements.
 2. Addressing edge cases.
