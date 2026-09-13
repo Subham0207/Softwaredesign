@@ -13,3 +13,7 @@
 
 - replica will be promoted to primary. 
 - we can add a queue, push message to queue. Return success to user. Now if DB write fails, we retry with replica when its promoted to primary.
+
+# DB write only wrote to WAL and then DB crashed. User got Success response. How will the system recover ?
+- replica promoted to primary, But replica does not have this data.
+- Will idempotency key even help here ?
