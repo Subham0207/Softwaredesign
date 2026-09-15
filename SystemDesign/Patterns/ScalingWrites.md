@@ -1,0 +1,23 @@
+- Vertical scaling
+- Sharding and partitioning
+    - Horizontal sharding (splits rows) vs Veritical paritioning(splits columns into multiple database - postgre, Redis, cassandra, etc).
+- Queue and load shedding
+    - queue - fine in writing likes, but bad in processing payment
+    - load shedding -- drop low priority updates - like location updates.
+- Batching and Aggregation
+    - batching
+        - application layer - server -> Kafka -> worker process batches -> DB
+        - intermediate processing layer - server -> batcher(read a window of updates) -> DB
+        - Database layer - flush writes from memory to disk.
+    - Aggregation ( 1 million (fan in)-> 1 -> (fan out) 1 million )
+        - Write processor - batches incoming writes ( use consistent hashing to determin which processor to pick )
+        - Broadcast nodes - broadcase nodes ( use consistent hashing to determine which node to pick )
+- Resharding 
+    - spin a new cluster
+    - dual write - to old and new cluster
+    - migrate data from old to new cluster ( this data will be old data )
+    - First reads only from old cluster, after confident read from new cluster
+    - Then decommission the old shard
+- Hot keys
+    - Always split - post1like, post2like,... go on different shard. this introduces complexity on read ( read  all likes on post).
+    - Split when Hot - readers check all subkeys.
