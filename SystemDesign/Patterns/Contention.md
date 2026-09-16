@@ -1,3 +1,6 @@
+# Problem:
+when multiple processes compete for same resources.
+
 # Conditional update
 - Conditional write - check part of database write query - using where clause
     - In SQL due to `Isolation gaurantees` - For an operation on same row, two writes happen one after the other.

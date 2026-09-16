@@ -13,7 +13,15 @@
 - 
 
 # security check
-
+- private quarantine/bucket
+- virus scan
+- then move to public bucket
 
 # CDN and authorization using signed URL
 - CDN check verify a token that contains a secret.
+
+# Summary
+- upload
+- download
+- security
+- CDN authentication
