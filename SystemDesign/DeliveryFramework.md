@@ -30,6 +30,7 @@ Example: Strong consistency for booking tickets & high availability for search a
 4. Latency:
     a. Do request require computation time ?
 5. Durability: How important is data loss. (No data loss) once data is saved, it persist despites hardware failure.
+9. Reliability: Example sent messages in a message system needs to be gauranteed.
 6. Security:
     a. Data protectetion
     b. access control
@@ -38,6 +39,7 @@ Example: Strong consistency for booking tickets & high availability for search a
     a. Redundancy
     b. Failover
     c. Recovery mechanism
+10. Resilience: System should still function despite individual component failures.
 8. Complaince:
     a. industry standards
     b. data protection laws
