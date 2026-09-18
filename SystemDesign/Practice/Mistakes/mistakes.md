@@ -6,8 +6,8 @@
     - put somethings out of scope.
 - Always quantifying the non functional requirements
 - Discuss core entities
-- Discuss the data flow with an example
+- Discuss the data flow with an example ( Helps identify `state and statuses` )
 - During High Level design ( Fulfulling FRs ) - Do all data manipulations in the main DB. Don't pre optimize it by adding other layers like redis ( this adds complexity )
-- Identify State machine early. Diff b/w states and statuses
+- Identify `State machine` early. Diff b/w `states and statuses`
 
 
