@@ -84,7 +84,7 @@ res -> RECIEVED
     - Processor computes the hash and forwards to owning websocket connection server
 - How does limited DB connection pool handles 10^3 or more workers calling the DB. DB can easily handle 100k RPS ( With no joins ) but is that not limited by connection pool reuse. How much will the cache help.
 -  what happens when a server fails on the consistent hash ring.
-    - A coordination layer like ZooKeeper or etcd watches for node health and updates the ring
-- How to handle websocket client connection and disconnecdtion ? 
+    - A coordination layer like `ZooKeeper or etcd` watches for node health and updates the ring
+- How to handle websocket client connection and disconnection ? 
     - heartbeat, with TTL( so even if the server crashes the connection is cleanedup )
     - hooks on the websocket connection.

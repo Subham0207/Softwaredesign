@@ -1,0 +1,10 @@
+- Inbox: Message storage needs to be per user. So we can clean message older than 30 days.
+- `server to server communication` to forward message to correct user websocket.
+    - `Server discovery`
+        - `Consistent hashring`
+        - Using etcd or Zookeper: `distributed coordination services` to store { userID: serverId } map
+    - `server Communication`
+        - `RPC` - server directly calls the other server.
+        - `Redis pub/sub`, using the store {userID: serverId} publish message to say `server:xyz` redis channel.
+            - choosing b/w one channel per user Vs one channel per server.
+            - Atmost once delivery problem:
