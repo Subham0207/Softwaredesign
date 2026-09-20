@@ -1,0 +1,4 @@
+- How can redis do this query: select * from posts where userId in ('celeb1', 'celeb2', ...) order by createdAt limit 20;
+- How to do query starting from a postId for cursor based pagination.
+    - lastSeenTimestamp
+- The flow while communicating client hints to server to choose best file size from CDN.
