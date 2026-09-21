@@ -52,9 +52,9 @@ res -> {
 
 - How would you keep the merged feed correctly ordered by time when one part comes from precomputed entries and the celebrity part is fetched on read, especially with pagination?
 
-    - we can fetch some posts from users feed and some posts from celebrity posts in memory and then join them in memory, ordered by createdAt and return N entries.
-
-    Also encode lastSeenTimestamp in the cursor in response to start from this time when looking up the next page in both cluster
+    - fetch 20 posts from user feed, 20 posts from each celebrity. Sort only first 20 entries from these in memory, return and discard the rest. This takes NLogK time ( so 20 Log sources ( where sources is user feed + number of celebs))
+    - return lastseentimestamp to know which entry to return next.
+    - celebes posts will be stores using a sorted set and creation time as the score - {'posts:celeb1' : SortedSet[{ timestamp, post1}]}
 
 - How would you handle the upload of large media files efficiently, particularly videos that could be up to 4GB in size?
     - multi part upload using s3 presigned URLs for each part. Post service creates a user upload session and signed part URLs. Then client sends chunks to s3. S3 responsds with ack that it recived.
@@ -71,3 +71,20 @@ res -> {
 
     - We will take user network speed and device screen size into consideration.
     - These details can be communcated by the client using HTTP hints
+
+
+- Redis operations
+
+`
+    GET / SET : Read and write cached values
+
+    Hash : Store and retrieve fields of an object
+
+    Sorted Set (ZSET) : Maintain elements sorted by a score
+
+    ZADD : Add a post to a sorted set
+
+    ZRANGE : Retrieve posts ordered by score, including timestamp-based ranges
+
+    EXPIRE : Set a TTL on a key
+`
