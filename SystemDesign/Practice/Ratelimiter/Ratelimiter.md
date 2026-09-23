@@ -62,3 +62,11 @@ Premium users get even higher rate limits.
 - Zookeeper -- distributed coordination service
     - configuration management and syncs to large distributed systems.
     - Gateway can keep configuration in memory, and can be synced via persistant TCP connection from zoo keeper.
+
+# Deep dive
+- How to reduce latancy
+    - We will have multi region deployment for our application so the rate limiter is close to our users. That way we minimize any latency overhead.
+
+    - We are going to read and write rate limits to redis. We should do this in the same atomic operation. Redis supports atomic transactions via lua scripting .
+
+    - Use connection pools for transactions, instead of creating new connections to redis cluster which adds to latency.

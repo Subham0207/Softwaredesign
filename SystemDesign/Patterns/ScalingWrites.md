@@ -21,3 +21,12 @@
 - Hot keys
     - Always split - post1like, post2like,... go on different shard. this introduces complexity on read ( read  all likes on post).
     - Split when Hot - readers check all subkeys.
+
+
+# Summary
+- Vertical Scaling
+- horizontal Sharding Vs vertical partitioning
+- Queue and load shedding
+- Batching and Aggregation
+- Resharding
+- Hot keys

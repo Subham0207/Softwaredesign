@@ -11,3 +11,8 @@
 - Identify `State machine` early. Diff b/w `states and statuses`
 
 
+# Deep dives
+- How to minimize latency
+    - multi region deployments, having servers close to the user.
+    - Use connections pools for transaction instead of creating new connection everytime.
+    - Atomic transactions - read and write in the same transaction.

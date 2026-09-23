@@ -45,8 +45,8 @@ Redis TTL lock can still give two user the same lock at boundary of the TTL.
 * compare and set
 
 - lock depends on application logic
-* pessimistic lock ( high collision)
-* optimistic lock ( low collision )
+* pessimistic lock ( high collision) - (Exclusive lock ( FOR UPDATE ), SharedLock ( cannot acquire exclusive lock))
+* optimistic lock ( low collision ) - using version
 
 - write skew
 * Serializable isolation level
