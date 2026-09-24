@@ -9,7 +9,7 @@
 - Edge cases/Errors
 - Scope boundary
 
-### Non-Functional Requirements ( qualities of the system )
+### Non-Functional Requirements ( qualities of the system / Gaurantees the system must provide )
 1. Prioritize 3 Requirements
 - for CAP theorem consistency and availability can coexists in different parts of our system
 Example: Strong consistency for booking tickets & high availability for search and viewing events.
