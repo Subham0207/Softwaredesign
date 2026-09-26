@@ -58,10 +58,11 @@ Minimizing latency
 - Atomic transaction
 
 # Improve System design
-- Gathering FR requirements.
-    - What kind of system
-    - Who is the user
-    - Different states and thier meaning
+- Gathering FR requirements. `Can you walk me through an actors flow`
+    - What kind of system.
+    - Who is the user.
+    - who are all the actors interacting with the system.
+    - Different states and thier meaning.
     - Errors
     - out of scope 
 - quantifying Non FRs.
