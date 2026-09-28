@@ -33,7 +33,7 @@ Examples Entities:
 - Board
 - Player
 
-Relationships:
+Relationships: ( `Note to state which is the orchestrator or main entry point: Like here Game class runs the logics` )
 - Game -> Board
 - Game -> Player (2x)
 

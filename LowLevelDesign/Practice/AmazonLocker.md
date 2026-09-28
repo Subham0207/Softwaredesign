@@ -1,230 +1,174 @@
-"Amazon Locker is a self-service package pickup system. A delivery driver deposits a package into an available compartment, the system generates an access token, and the customer uses that code to retrieve their package."
+// ═══════════════════════════════════════════════════════════════════════════
+// REQUIREMENTS
+//
+// Example (Tic Tac Toe):
+//   1. Two players alternate placing X and O on a 3x3 grid.
+//   2. A player wins by completing a row, column, or diagonal.
+//   Out of Scope: UI, AI opponent, networking
+// ═══════════════════════════════════════════════════════════════════════════
 
-// Requirements
-// 1. primary capabilities
-// 2. Rules and completion
-// 3. Error/Invalid cases
-// 4. Scope Boundary
+- delivery driver should
+    - deposit package of size into available compartments
+- after deposit system should generate access code and send to customer.
+- cusotmer should
+    - retrieve thier package using access code
+- compartment: different sizes, within a lockerUnit
+- Errors
+    - Wrong code
+    - Wrong compartment
+    - Deposit failed
+    - locker full
+    - code expired
+    - Compartment for the package size not available
+- out of Scope
+    - Auth
+    - UI
+    - customer notification
+    - handling after code expiry
 
-# Requirements
-Primary Capabilities
-1. Package Delivery service. Self Pickup.
-2. Delivery Driver deposits a package into available compartments of Amazon Locker.
-3. System Generates an access token
-4. customer uses the token to retrieve thier package
-Error/Invalid cases
-1. Delivery driver deposits into wrong compartment.
-2. customer uses wrong token
-3. No compartment avialable
-Scope and Boundary:
-# out of Scope
-1. token generation failed due to system outage.
-2. Rest APIs
-# In Scope
-1. focus on state transitiion, model and extensibility
-2. Just create Service classes
+User flow
+- Delivery driver arrives
+- system finds an compartment for the package size.
+- delivery driver places the package in the compartment
+- compartment occupied
+- code generated ( valid for 7 days ) and sent to User
+- user put the password and picks the package
+- compartment available
 
-# Entities and relationship
-1. DeliveryDriver
-2. Package
-3. Compartment
-4. AmazonLocker
-5. Customer
-6. AccessToken
 
-AmazonLocker has Compartments
-Compartment has a AccessToken
-Package
- - Customer
- - AccessToken
- - Compartment
+// ═══════════════════════════════════════════════════════════════════════════
+// ENTITIES & RELATIONSHIPS
+//
+// Example (Tic Tac Toe):
+//   Game, Board, Player
+// ═══════════════════════════════════════════════════════════════════════════
 
-# Statemodelling and transitions
-Package
+- package
+    - size: small, medium, large ( can be extendible )
+- locker
+    - compartment
+        - state: OCCUPIED | AVIALABLE
+        - access code
+            - expiry
+- delivery driver
+- customer
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CLASS DESIGN
+//
+// Example (Tic Tac Toe):
+//   class Game:
+//     - board: Board
+//     - currentPlayer: Player
+//     + makeMove(row, col) -> bool
+// ═══════════════════════════════════════════════════════════════════════════
+
+class AccessCode
 {
-    CREATED
-    ASSIGNED
-    DEPOSITED,
-    PICKED_UP
-    EXPIRED,
-    RETURNED,
-    DELIVERED
+    string code;
+    Date expiry;
+
+    bool isExpired();
+
+    AccessCode()
+    {
+        code == hash();
+        let expiry = new Date();
+        expiry = expirty.setDate(expirty.getDate() + 7);
+    }
 }
-
-Compartment
-{
-    AVAILABLE
-    RESERVED
-    OCCUPIED
-    OUT_OF_SERVICE
-}
-
-AccessToken
-{
-    GENERATED,
-    ACTIVE,
-    USED,
-    EXPIRED
-}
-
-DeliveryDriver
-{
-    INPROGRESS,
-    DELIVERED
-}
-
-Package::CREATED
-Compartment::Available
-Package::Assigned
-Compartment::RESERVED
-Package::PICKEDUP
-DeliveryDriver::INPROGRESS
-PACKAGE::DEPOSITED
-Compartment::OCCUPIED
-DeliveryDriver::DELIVERED
-AccessToken::GENERATED
-AccessToken::ACTIVE
-Access::USED
-Packaged::DELIVERED
-Compartment::AVAILABLE
-
-
-# Class Design
 
 class Compartment
 {
-    public
-        constructor()
-        {
-            status = AVAILABLE;
-            accessToken = new AccessToken(EXPIRED);
+    state: OCCUPIED | AVIALABLE;
+    AccessCode accessCode?;
+    PackageSize size: SMALL | MEDIUM | LARGE;
+
+    Compartment(size);
+
+    string placePackage(); // gen access code and update status to occupied.
+    void open(string accessCode); // check for expiry and open if success.
+    bool tryReserve()
+    {
+        lock(this) {
+            if (state != AVAILABLE)
+                return false;
+
+            state = OCCUPIED;
+            return true;
         }
+    }
+}
+class Locker
+{
+    Compartment[] compartments;
+    Map<string, number> codeToCompartmentMap;
+
+    Locker();
+
+    public string depositPackage(Packagesize size); // calls findemptyCompartment
+    public void retrievePackage(string accessCode); // lookup map to find compartment index and open it using code
+
+    private number findCompartment(string accessCode); // find which compartment the package is in.
+
+    private Compartment findEmptyCompartment(PakageSize size);
+}
+
+
+// ═══════════════════════════════════════════════════════════════════════════
+// IMPLEMENTATION
+// ═══════════════════════════════════════════════════════════════════════════
+number findEmptyCompartment(size)
+{
+    let index = compartments.findIndex(compartment => compartment.state === AVIALABLE && compartment.size === size);
+
+    if(index === -1)
+        throw Error("Compartment for package size not available");
     
-    getStatus();
-    updateStatus();
-    occupied()
-    {
-        accessToken.generate();
-        accessToken.activate();
-    }
-    emptied(password: string)
-    {
-        if(accessToken.tryPassword())
-        {
-            package.delivered();
-            status = AVAILABLE;
-        }
-    }
-    private:
-        status: (AVAILABLE | RESERVED | OCCUPIED | OUT_OF_SERVICE)
-        id: string;
-
-        package?: Package;
-
-        accessToken: AccessToken();
+    return index;
 }
-class AmazonLocker
+
+string placePackage()
 {
-    public:
-        constructor(noOfCompartments: int)
-        {
-        }
-    
-    putPackage(compartmentId, Package);
-    isAnyCompartmentAvailable();
-    reserveACompartment(package: Package)
-    {
-        if(isAnyCompartmentAvailable())
-        {
-            throw Error('Out of available compartments');
-        }
-        //Filter out avialable compartments
-        // then reserve the first one available.
+    this.accessCode = new AccessCode();
+    state = OCCUPIED;
 
-    }
-    private:
-        Compartments[];
+    return this.accessCode.code;
 }
 
-class Package
+string depositPackage(size)
 {
-    public:
-        constructor()
-        {
-            status = CREATED;
-            id = uuid();
-        }
+    let index = findEmptyCompartment(size);
+    let compartment = compartments[index].tryReserve();
+    if(!compartment)
+        throw new Error('Concurrent access, try again');
+    let code = compartment.placePackage();
 
-    updateStatus()
-    getStatus();
-    pickedup()
-    private:
-        id: string;
-        status: (CREATED
-                ASSIGNED
-                DEPOSITED
-                PICKED_UP
-                EXPIRED
-                RETURNED
-                DELIVERED)
+    codeToCompartmentMap[code] = index;
+
+    return code;
 }
 
-class AccessToken
+void pickup(string code)
 {
-    public:
-        constructor()
-        {
+    // validate code and expiry
+    if(!(code in codeToCompartmentMap))
+        throw new Error('Invalid code');
 
-        }
-    
-    generate()
-    tryPassword(password: string)
-    {
-        if(password !== this.password)
-            return false;
-        
-        status = USED;
-        return true;
-    }
-    private:
-        status: (
-            GENERATED,
-            ACTIVE,
-            USED,
-            EXPIRED
-        )
+    let compartmentIndex = codeToCompartmentMap[code];
 
-        password: string;
-        expiryAtDate: Date;
-        createdAtDate: Date;
+    let compartment = compartments[compartmentIndex]
+    if(compartment.accessCode?.isExpired())
+        throw new Error('Code expired');
+
+    //make container available and remove accesscode
+    compartment.state = AVAILBLE;
+    compartment.accessCode = null;
 }
 
 
-class LockerService
-{
-public:
-    constructor(){}
+// ═══════════════════════════════════════════════════════════════════════════
+// EXTENSIBILITY
+// ═══════════════════════════════════════════════════════════════════════════
 
-    function main()
-    {
-        const amazonLocker =  new AmazonLocker(10);
-        
-        const package = new Package();
-
-        const compartment = amazonLocker.reserveACompartment(pacakge);
-
-        package.pickedup();
-        package.deposited();
-        compartment.occupied(); // Access token generated and active... compartment is doing two things so is bad for single responsibility principle.
-
-        compartment.emptied(); // Access token used package delivered
-    }
-}
-
-
-finding an avaialble compartment in AmazonLocker class, since this class owns an array of compartments
-Reserving a compartment in amazonLocker class, since it owns compartments
-generating access token I have put inside compartment class when reserving compartment.
-after compartment class is emptied
-Marking package as picked up, when compartment is emptied.
-Freeing the compartment, after the compartment is emptied, compartment status is reset to AVAILABLE
