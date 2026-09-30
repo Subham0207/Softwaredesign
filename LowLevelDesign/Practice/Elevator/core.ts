@@ -190,16 +190,23 @@ class ElevatorService{
         return this.nearestElevator(request.floor);
     }
 
-    nearestIdleElevator(floor: number):Elevator { return new Elevator()}
+    nearestIdleElevator(floor: number):Elevator | null { 
+        for(let elevator of this.elevators)
+        {
+            if(elevator.direction === ELEVATOR_DIRECTION.IDLE)
+                return elevator;
+        }
+        return null;
+    }
     // function nearestElevator(floor: number){}
-    nearestElevator(requestFloor: number, direction?: ELEVATOR_DIRECTION): Elevator | null
+    nearestElevator(requestFloor: number, direction?: ELEVATOR_DIRECTION): Elevator
     {
         /*
             let min = INFINITY;
             for each elevator
             min = Math.min(min, Math.abs(elevator.getFloor() - floor))
         */
-        let nearest = null;
+        let nearest = this.elevators[0]; // make first elevator the detault instead of null
         let min = Infinity;
         for(let elevator of this.elevators)
         {
