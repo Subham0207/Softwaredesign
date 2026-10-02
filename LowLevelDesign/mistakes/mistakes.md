@@ -3,3 +3,7 @@
 # Implmentation
 - validation / edge cases
 - core logic
+
+# In LLD, Always include the orchestrator as a core entity.
+
+# Name patterns - Strategy, EventDriven, Statemachine.

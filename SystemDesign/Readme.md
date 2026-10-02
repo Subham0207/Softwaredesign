@@ -71,11 +71,12 @@ Minimizing latency
     - Walk through the main user flow
     - record different states and thier meaning.
     - Errors
-    - out of scope 
+    - out of scope
 - quantifying Non FRs, Record Gaurantees the system must provide.
 - core entities and discussing the data flow with an example ( to identify different states )
 - API Design
 - During HLD - All data in primary DB.
+- make sure to state index, FK, etc.
 - state vs status
 
 # 
