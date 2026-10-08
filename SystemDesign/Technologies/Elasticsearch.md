@@ -1,6 +1,8 @@
 # Elastic Search Usecases
 - vector search
 - full text search
+    - partial term matching || fuzzy matching
+    - Semantic search is also possible - by converting into embeddings.
 - geospatial search
 
 # How to use

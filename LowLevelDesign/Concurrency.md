@@ -2,7 +2,7 @@
 
 2. Atomic lock - interlocked
 
-3. Monitor.enter(obj): try{}finally{}
+3. concurentMap<string, obj>(); Monitor.enter(obj): try{ .logic. Monitor.enter(obj) .logic.}finally{ .release. }
 
 4. Semaphores - limit concurrency to N
 
@@ -10,6 +10,6 @@
 
 6. ConcurrentDictionary, ConcurrentQueue 
 
-7. Deadlock: avoid by always acquiring lock in same order.
+7. Deadlock: avoid by always acquiring lock in same order. sort the lock keys and then acquire locks.
 
 8. Thread pool: Task.Run(() => processJob());

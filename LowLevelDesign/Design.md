@@ -1,14 +1,20 @@
 # Design Principle
 1. KISS ( Keep It Simple, Stupid)
 2. YAGNI ( You Are'nt Gonna Need it)
-3. Separation Of Concern
+3. `Separation Of Concern`
 4. DRY ( Donot Repeat Yourself)
 
 # OOPS Concepts
-1. Abstraction ( using interfaces, not worrying about underlying details)
-2. Polymorphism ( overloading, more than one form)
+1. `Abstraction` ( using interfaces, not worrying about underlying details)
+2. `Polymorphism` ( overloading, more than one form)
 3. Encapsulation ( private, public, protected)
 4. Inheritance (parent and child class)
+
+# Composition
+use references to other objects rather than inheriting from a parent class.
+Like Car has an Engine. Car is not derived from engine.
+
+`Composition is often preferred over Inheritance.`
 
 ## Composition
 Instead a sub-class inheriting from parent class. We reference the parent class object in subclass.
