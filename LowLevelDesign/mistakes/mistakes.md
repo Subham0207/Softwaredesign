@@ -16,6 +16,8 @@
 - core logic
 - Locks - Lock in consistent order to avoid deadlock. For two or more locks lock in a sorted order.
 `lock(string1){ lock(string2) { ...logic...}}`
+- Interfaces should be stateless.
+- State that needs initialization on startup -> need to have a method to fill it.
 
 # In LLD, Always include the orchestrator as a core entity.
 
