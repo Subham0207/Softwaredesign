@@ -7,17 +7,21 @@ Example: You are already given the requirement, create entities and relationship
 - Make use of interfaces when multiple forms of same thing exists.
 
 # Requirements ( primary capabilities, Error handling, Scope boundary)
-1. Primary capabilities: What operation must this system support
-2. Rules and completions:
+- What system ?
+- Primary capabilities: What operation must this system support
+    - Identify Atomic operations
+    - Identify extendible Strategies and types
+- thread saftey - concurrent accesses.
+- Rules and completions:
     a. Define Success
     b. failure
     c. When the system stops 
     d. State transitions
-3. Error handling: System response when inputs or actions are invalid. Example:
+- Error handling: System response when inputs or actions are invalid. Example:
     - Timeouts
     - dead locks
     - InvalidInput
-4. Scope boundary:
+- Scope boundary:
     a. In scope
     b. out of scope
         - Authentication/authorization
